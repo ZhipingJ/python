@@ -28,6 +28,17 @@ class Ball:
                         self.x=-6
 
 
+class Paddle:
+	"""docstring for Paddle"""
+	def __init__(self, canvas,color):
+		self.canvas=canvas
+		self.id=canvas.create_rectangle(0,0,100,10,fill=color)
+		self.canvas.move(self.id,200,300)
+	def draw(self):
+		pass
+		
+
+
 tk=Tk()
 tk.title('Game')
 tk.resizable(0,0)
@@ -37,11 +48,12 @@ canvas.pack()
 tk.update()
 
 
-
+paddle=Paddle(canvas,'blue')
 ball=Ball(canvas,'red')
 
-while 1:
+while 1:		
         ball.draw()
+        paddle.draw()
         tk.update_idletasks()
         tk.update()
         time.sleep(0.01)
